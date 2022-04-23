@@ -1,0 +1,19 @@
+{
+    "clientId": "",
+    "guildId": "",
+    "token": "",
+    "channelNotifId (optional)": "",
+    "channelNotifName": "",
+
+    "apiUrl": "",
+    "apiKey": "",
+    "apiMethod": "",
+    "apiHeaders": {
+        
+    },
+
+    "mongoDbName": "",
+    "mongoDbUrl": "",
+    "mongoDbUsername": "",
+    "mongoDbPassword": ""
+}

@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "axios": "^0.26.1",
+    "cron": "^1.8.2",
+    "discord-api-types": "^0.23.0",
+    "discord.js": "^13.1.0",
+    "mongodb": "^4.5.0"
+  },
+  "name": "stock_exchange_discord_bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node deploy-commands.js",
+    "start": "node index.js"
+  },
+  "author": "Ano",
+  "license": "ISC",
+  "description": "You'll get notifications from a discord bot if a limit is triggered on a symbol market"
+}
