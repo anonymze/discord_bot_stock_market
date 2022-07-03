@@ -1,7 +1,8 @@
 const fs = require('fs');
 const { Client, Collection, Intents, MessageEmbed } = require('discord.js');
-const { token, guildId } = require('./config.json');
 const notificationLimitOrder = require('./cron/notification.js');
+import 'dotenv/config';
+const token = process.env.TOKEN;
 
 const handleCommand = require('./helpers/command');
 const handleSelectMenu = require('./helpers/select-menu');
@@ -36,7 +37,7 @@ client.on('interactionCreate', async interaction => {
 client.on('userUpdate', async (oldMember, newMember) => {
     const { id, avatarOld } = oldMember;
     const { avatarNew } = newMember;
-    
+
 
     if (id = flavioId && avatarOld !== avatarNew) {
         const channel = client.channels.cache.get(generalChannelId);

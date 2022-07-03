@@ -6,6 +6,7 @@
     "cron": "^1.8.2",
     "discord-api-types": "^0.23.0",
     "discord.js": "^13.8.1",
+    "dotenv": "^16.0.1",
     "mongodb": "^4.5.0"
   },
   "name": "stock_exchange_discord_bot",
