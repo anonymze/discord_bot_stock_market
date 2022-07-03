@@ -64,17 +64,10 @@ client.on('userUpdate', async (oldMember, newMember) => {
 
 let lastTypingTimestamp;
 // every 30 min
-let betweenSchedule = lastTypingTimestamp ? new Date(lastTypingTimestamp + (30 * 60000)).getTime() : startedTimestamp;
+let betweenSchedule = lastTypingTimestamp ? new Date(lastTypingTimestamp + (600 * 60000)).getTime() : startedTimestamp;
 
-let n = 0;
 client.on('typingStart', async (typingEvent) => {
     const { user, channel, startedTimestamp } = typingEvent;
-
-
-    console.log(n);
-    n++;
-
-
 
     // channel général ID + flavio ID
     if (channel.id === generalChannelId && user.id === flavioId && startedTimestamp >= betweenSchedule) {
