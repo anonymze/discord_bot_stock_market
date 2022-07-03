@@ -67,7 +67,7 @@ let lastTypingTimestamp;
 client.on('typingStart', async (typingEvent) => {
     const { user, channel, startedTimestamp } = typingEvent;
     
-    // every 30 min
+    // every 10h
     let betweenSchedule = lastTypingTimestamp ? new Date(lastTypingTimestamp + (600 * 60000)).getTime() : startedTimestamp;
 
     // channel général ID + flavio ID
