@@ -1,10 +1,13 @@
 const fs = require('fs');
-const { Client, Collection, Intents } = require('discord.js');
+const { Client, Collection, Intents, MessageEmbed } = require('discord.js');
 const { token, guildId } = require('./config.json');
 const notificationLimitOrder = require('./cron/notification.js');
 
 const handleCommand = require('./helpers/command');
 const handleSelectMenu = require('./helpers/select-menu');
+
+const flavioId = '269781481285615616';
+const generalChannelId = '767805471951421452';
 
 // Intents (what bot can receive from events)
 const myIntents = new Intents(32767);
@@ -22,7 +25,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', function () {
-    console.log('--- STOCK EXCHANGE MARKET ---');    
+    console.log('--- STOCK EXCHANGE MARKET ---');
 });
 
 client.on('interactionCreate', async interaction => {
@@ -31,23 +34,43 @@ client.on('interactionCreate', async interaction => {
 });
 
 client.on('userUpdate', async (oldMember, newMember) => {
-    console.log('2');
-    console.log(oldMember, newMember);
+    const { id, avatarOld } = oldMember;
+    const { avatarNew } = newMember;
+
+    if (id = flavioId && avatarOld !== avatarNew) {
+        const channel = client.channels.cache.get(generalChannelId);
+        const user = client.users.cache.get(flavioId);
+
+        const texts = [
+            'Oui oui, vous ne rêvez pas. Flavien a encore changé sa photo de profil.',
+            'Les roses sont rouges, les violettes sont bleues, Flavien est un chien (désolé c\'était pour la rime).',
+            'Beep boop, une nouvelle propagande du général Francisco Flavino.',
+            'Non.',
+        ]
+
+        // Message
+        const embededMessage = new MessageEmbed();
+        embededMessage.setTitle(texts[Math.floor(Math.random() * texts.length)])
+            .setColor('#2aa198')
+            .setImage(user.displayAvatarURL());
+
+        channel.send({ embeds: [embededMessage] });
+    }
 });
 
 client.on('typingStart', async (typingEvent) => {
-    const {user, channel, startedTimestamp} = typingEvent;
+    const { user, channel, startedTimestamp } = typingEvent;
     let lastTypingTimestamp;
 
-    // every 15 min
-    let betweenSchedule = lastTypingTimestamp ? new Date(lastTypingTimestamp + (1 * 60000)).getTime() : startedTimestamp;
+    // every 30 min
+    let betweenSchedule = lastTypingTimestamp ? new Date(lastTypingTimestamp + (30 * 60000)).getTime() : startedTimestamp;
 
     // channel général ID + flavio ID
-    if (startedTimestamp >= betweenSchedule) {
-    // if (channel.id === '767805471951421452' && user.id === '269781481285615616' && startedTimestamp > betweenSchedule) {
+    if (channel.id === generalChannelId && user.id === flavioId && startedTimestamp >= betweenSchedule) {
         lastTypingTimestamp = startedTimestamp;
-        console.log('flavio écrit');
-    }  
+        const channel = client.channels.cache.get(generalChannelId);
+        channel.send('⚠️ ⚠️ Flavien s\'apprête à lacher une masterclass ⚠️ ⚠️');
+    }
 });
 
 client.login(token);
