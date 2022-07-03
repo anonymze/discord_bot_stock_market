@@ -1,0 +1,19 @@
+{
+    "clientId": "966057147408474172",
+    "guildId": "767805471951421450",
+    "channelNotifId": "966371513676738560",
+    "channelNotifName": "stock-market-notif",
+
+    "apiUrl": "https://yh-finance.p.rapidapi.com/stock/v2/get-financials",
+    "apiKey": "ef7bb0b628msh7830fde8444f3d5p192eb0jsn4433275449c8",
+    "apiMethod": "GET",
+    "apiHeaders": {
+        "X-RapidAPI-Host": "yh-finance.p.rapidapi.com",
+        "X-RapidAPI-Key": "ef7bb0b628msh7830fde8444f3d5p192eb0jsn4433275449c8"
+    },
+
+    "mongoDbName": "stock_exchange",
+    "mongoDbUrl": "mongodb+srv://<username>:<password>@cluster0.fvs7a.mongodb.net/<database>?retryWrites=true&w=majority",
+    "mongoDbUsername": "anonymze",
+    "mongoDbPassword": "Aucamville77.."
+}
