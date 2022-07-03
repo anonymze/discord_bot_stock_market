@@ -36,6 +36,7 @@ client.on('interactionCreate', async interaction => {
 client.on('userUpdate', async (oldMember, newMember) => {
     const { id, avatarOld } = oldMember;
     const { avatarNew } = newMember;
+    
 
     if (id = flavioId && avatarOld !== avatarNew) {
         const channel = client.channels.cache.get(generalChannelId);
