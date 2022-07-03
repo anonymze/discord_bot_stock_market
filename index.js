@@ -63,8 +63,12 @@ client.on('userUpdate', async (oldMember, newMember) => {
 });
 
 client.on('typingStart', async (typingEvent) => {
+    const n = 0;
     const { user, channel, startedTimestamp } = typingEvent;
     let lastTypingTimestamp;
+
+    console.log(n);
+    n++;
 
     // every 30 min
     let betweenSchedule = lastTypingTimestamp ? new Date(lastTypingTimestamp + (30 * 60000)).getTime() : startedTimestamp;
