@@ -1,8 +1,10 @@
 const fs = require('fs');
 const { Client, Collection, Intents, MessageEmbed } = require('discord.js');
 const notificationLimitOrder = require('./cron/notification.js');
-import 'dotenv/config';
+require('dotenv').config()
 const token = process.env.TOKEN;
+
+console.log(token);
 
 const handleCommand = require('./helpers/command');
 const handleSelectMenu = require('./helpers/select-menu');
