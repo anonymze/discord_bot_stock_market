@@ -63,7 +63,7 @@ client.on('userUpdate', async (oldMember, newMember) => {
 });
 
 client.on('typingStart', async (typingEvent) => {
-    const n = 0;
+    let n = 0;
     const { user, channel, startedTimestamp } = typingEvent;
     let lastTypingTimestamp;
 
