@@ -55,7 +55,7 @@ client.on('userUpdate', async (oldMember, newMember) => {
         const embededMessage = new MessageEmbed();
         embededMessage.setTitle(texts[Math.floor(Math.random() * texts.length)])
             .setColor('#2aa198')
-            .setDescription('Nouvelle pp du grand maître')
+            .setDescription('Nouvelle pp du grand maître.')
             .setImage(user.displayAvatarURL());
 
         channel.send({ embeds: [embededMessage] });
