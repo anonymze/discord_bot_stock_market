@@ -4,8 +4,6 @@ const notificationLimitOrder = require('./cron/notification.js');
 require('dotenv').config()
 const token = process.env.TOKEN;
 
-console.log(token);
-
 const handleCommand = require('./helpers/command');
 const handleSelectMenu = require('./helpers/select-menu');
 
@@ -40,7 +38,7 @@ client.on('userUpdate', async (oldMember, newMember) => {
     const { id, avatar: avatarOld } = oldMember;
     const { avatar: avatarNew } = newMember;
 
-    if (id = flavioId && avatarOld !== avatarNew) {
+    if (id === flavioId && avatarOld !== avatarNew) {
         const channel = client.channels.cache.get(generalChannelId);
         const user = client.users.cache.get(flavioId);
 
